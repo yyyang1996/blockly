@@ -243,7 +243,6 @@ const Block = function(workspace, prototypeName, opt_id) {
     if (eventUtils.isEnabled()) {
       eventUtils.fire(new (eventUtils.get(eventUtils.BLOCK_CREATE))(this));
     }
-
   } finally {
     if (!existingGroup) {
       eventUtils.setGroup(false);
@@ -1612,7 +1611,7 @@ Block.prototype.jsonInit = function(json) {
 
   const extensionNames = json['extensions'];
   if (Array.isArray(extensionNames)) {
-    for (let j = 0; j < extensionNames.length; ++j) {
+    for (let j = 0; j < extensionNames.length; j++) {
       Extensions.apply(extensionNames[j], this, false);
     }
   }
@@ -1669,7 +1668,7 @@ Block.prototype.mixin = function(mixinObj, opt_disableCheck) {
   }
   if (!opt_disableCheck) {
     const overwrites = [];
-    for (let key in mixinObj) {
+    for (const key in mixinObj) {
       if (this[key] !== undefined) {
         overwrites.push(key);
       }

@@ -374,7 +374,7 @@ const buildTooltipForDropdown = function(dropdownName, lookupTable) {
   // of document object, in which case skip the validation.
   if (typeof document === 'object') {  // Relies on document.readyState
     utils.runAfterPageLoad(function() {
-      for (let key in lookupTable) {
+      for (const key in lookupTable) {
         // Will print warnings if reference is missing.
         utils.checkMessageReferences(lookupTable[key]);
       }
@@ -426,7 +426,7 @@ const checkDropdownOptionsInTable = function(block, dropdownName, lookupTable) {
   const dropdown = block.getField(dropdownName);
   if (!dropdown.isOptionListDynamic()) {
     const options = dropdown.getOptions();
-    for (let i = 0; i < options.length; ++i) {
+    for (let i = 0; i < options.length; i++) {
       const optionKey = options[i][1];  // label, then value
       if (lookupTable[optionKey] === null) {
         console.warn(

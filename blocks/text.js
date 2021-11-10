@@ -9,7 +9,7 @@
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.texts');  // Deprecated
+goog.provide('Blockly.blocks.texts');
 goog.provide('Blockly.Constants.Text');
 
 goog.require('Blockly');
@@ -27,7 +27,7 @@ goog.require('Blockly.Mutator');
  */
 Blockly.Constants.Text.HUE = 160;
 
-Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+Blockly.defineBlocksWithJsonArray([
   // Block for text value
   {
     "type": "text",
@@ -63,7 +63,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "width": 12,
       "height": 17,
       "alt": '\u00B6',
-    },{
+    },
+    {
       "type": "field_multilinetext",
       "name": "TEXT",
       "text": "",
@@ -200,7 +201,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "message0": "%{BKY_TEXT_CHARAT_TITLE}", // "in text %1 %2"
     "args0": [
       {
-        "type":"input_value",
+        "type": "input_value",
         "name": "VALUE",
         "check": "String",
       },
@@ -222,7 +223,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "inputsInline": true,
     "mutator": "text_charAt_mutator",
   },
-]);  // END JSON EXTRACT (Do not delete this comment.)
+]);
 
 Blockly.Blocks['text_getSubstring'] = {
   /**

@@ -6,14 +6,10 @@
 
 /**
  * @fileoverview List blocks for Blockly.
- *
- * This file is scraped to extract a .json file of block definitions. The array
- * passed to defineBlocksWithJsonArray(..) must be strict JSON: double quotes
- * only, no outside references, no functions, no trailing commas, etc. The one
- * exception is end-of-line comments, which the scraper will remove.
  */
 'use strict';
 
+goog.provide('Blockly.blocks.Lists');
 goog.provide('Blockly.Constants.Lists');
 
 goog.require('Blockly');
@@ -28,7 +24,7 @@ goog.require('Blockly.Mutator');
  */
 Blockly.Constants.Lists.HUE = 260;
 
-Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+Blockly.defineBlocksWithJsonArray([
   // Block for creating an empty list
   // The 'list_create_with' block is preferred as it is more flexible.
   // <block type="lists_create_with">
@@ -111,7 +107,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "tooltip": "%{BKY_LISTS_LENGTH_TOOLTIP}",
     "helpUrl": "%{BKY_LISTS_LENGTH_HELPURL}",
   },
-]);  // END JSON EXTRACT (Do not delete this comment.)
+]);
 
 Blockly.Blocks['lists_create_with'] = {
   /**

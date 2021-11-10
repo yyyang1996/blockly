@@ -6,15 +6,10 @@
 
 /**
  * @fileoverview Variable blocks for Blockly.
-
- * This file is scraped to extract a .json file of block definitions. The array
- * passed to defineBlocksWithJsonArray(..) must be strict JSON: double quotes
- * only, no outside references, no functions, no trailing commas, etc. The one
- * exception is end-of-line comments, which the scraper will remove.
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.variables');  // Deprecated.
+goog.provide('Blockly.blocks.variables');
 goog.provide('Blockly.Constants.Variables');
 
 goog.require('Blockly');
@@ -28,7 +23,7 @@ goog.require('Blockly.FieldVariable');
  */
 Blockly.Constants.Variables.HUE = 330;
 
-Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+Blockly.defineBlocksWithJsonArray([
   // Block for variable getter.
   {
     "type": "variables_get",
@@ -68,7 +63,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "helpUrl": "%{BKY_VARIABLES_SET_HELPURL}",
     "extensions": ["contextMenu_variableSetterGetter"],
   },
-]);  // END JSON EXTRACT (Do not delete this comment.)
+]);
 
 /**
  * Mixin to add context menu items to create getter/setter blocks for this
@@ -87,14 +82,14 @@ Blockly.Constants.Variables.CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN = {
    */
   customContextMenu: function(options) {
     if (!this.isInFlyout) {
-      let opposite_type;
+      let oppositeType;
       let contextMenuMsg;
       // Getter blocks have the option to create a setter block, and vice versa.
       if (this.type === 'variables_get') {
-        opposite_type = 'variables_set';
+        oppositeType = 'variables_set';
         contextMenuMsg = Blockly.Msg['VARIABLES_GET_CREATE_SET'];
       } else {
-        opposite_type = 'variables_get';
+        oppositeType = 'variables_get';
         contextMenuMsg = Blockly.Msg['VARIABLES_SET_CREATE_GET'];
       }
 
@@ -105,7 +100,7 @@ Blockly.Constants.Variables.CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN = {
       xmlField.setAttribute('name', 'VAR');
       xmlField.appendChild(Blockly.utils.xml.createTextNode(name));
       const xmlBlock = Blockly.utils.xml.createElement('block');
-      xmlBlock.setAttribute('type', opposite_type);
+      xmlBlock.setAttribute('type', oppositeType);
       xmlBlock.appendChild(xmlField);
       option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
       options.push(option);

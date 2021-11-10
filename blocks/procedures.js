@@ -9,7 +9,7 @@
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.procedures');
+goog.provide('Blockly.blocks.procedures');
 
 goog.require('Blockly');
 goog.require('Blockly.Comment');
@@ -75,7 +75,6 @@ Blockly.Blocks['procedures_defnoreturn'] = {
    * @this {Blockly.Block}
    */
   updateParams_: function() {
-
     // Merge the arguments into a human-readable list.
     let paramString = '';
     if (this.arguments_.length) {

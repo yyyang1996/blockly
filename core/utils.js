@@ -418,7 +418,7 @@ const tokenizeInterpolation_ = function(message, parseInterpolationTokens) {
   // Merge adjacent text tokens into a single string.
   const mergedTokens = [];
   buffer.length = 0;
-  for (let i = 0; i < tokens.length; ++i) {
+  for (let i = 0; i < tokens.length; i++) {
     if (typeof tokens[i] === 'string') {
       buffer.push(tokens[i]);
     } else {
@@ -482,7 +482,7 @@ const is3dSupported = function() {
   // Add it to the body to get the computed style.
   document.body.insertBefore(el, null);
 
-  for (let t in transforms) {
+  for (const t in transforms) {
     if (el.style[t] !== undefined) {
       el.style[t] = 'translate3d(1px,1px,1px)';
       const computedStyle = global.globalThis['getComputedStyle'](el);
